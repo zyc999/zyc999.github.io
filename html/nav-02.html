@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>最新优惠 - 省钱控 - 慢慢买</title>	
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <!--标准mui.css-->
+	<link rel="stylesheet" href="../css/mui.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/nav-02.css">
+</head>
+<body>
+<div class="layout">
+	<div class="fixed-app">
+			<a href="">
+				<img src="../images/app.png" alt="" />
+			</a>
+	</div>
+	<!--头部-->
+	<div class="header clearfix">
+		<a href="../index.html" class="fl">&lt;</a>
+		<h2>省钱控 - 最新优惠</h2>
+		<a href="" class="fr">
+			<img src="../images/header_app.png" class="header_app"/>
+		</a>
+	</div>	
+	<!-- 优惠列表 -->
+	<ul class="product">
+		<!-- <a href="" class="item">
+			<div class="item-l"></div>
+			<div class="item-r">
+				<p class="pro-name">
+					<span class="pro-name1"><span>
+					<span class="red"></span>
+				</p>
+				<p class="pro-from">
+					<span class="grey"></span>
+					<i class="icon-common fr"><i>
+				</p>					
+			</div>
+		</a> -->
+	</ul>
+	<!-- 分页按钮 -->
+	<div class="mui-content">
+		<div class="mui-content-padded">
+			<ul class="mui-pagination mui-pagination-sm">
+					
+					<!-- <li>
+						<a href="#">
+							1
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							2
+						</a>
+					</li>
+					<li class="mui-active">
+						<a href="#">
+							3
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							4
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							5
+						</a>
+					</li>
+					<li class="mui-next">
+						<a href="#">
+							&raquo;
+						</a>
+					</li> -->
+			</ul>
+		</div>
+	</div>
+
+	<p class="return"><a href="../index.html">首页 &gt;</a><span>省钱控</span></p>
+	<!--底部-->
+	<div class="footer">
+			<div class="f-top">
+				<a href="" id="login">登录</a>
+				<a href="" id="register">注册</a>
+				<a href="javascript:scroll(0,0)" id="return-top"><i></i>返回顶部</a>
+			</div>
+			<p>
+				<a class="downLoad">手机APP下载</a>
+				<span>慢慢买手机版--掌上比价平台</span>
+			</p>
+			<p>m.manmanbuy.com</p>
+	</div>
+</div>
+</body>
+<script src="../js/mui.min.js"></script>
+<script type="text/javascript" src="../js/jquery/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		getMoneySave();
+		addPage();
+		changePage();
+	})
+	//获取省钱控商品列表
+	var pages,page,i;
+	function getMoneySave(page){
+		$('.product').empty();
+		$.get('http://127.0.0.1:3000/api/getmoneyctrl?pageid='+page,function(data){
+			//console.log(data.result);
+			data.result.forEach(function(v){
+				var str = '';
+				str = '<a href="nav-02-detail.html?productid='+v.productId+'" class="item">'+
+				'<div class="item-l">'+v.productImgSm+'</div>'+
+				'<div class="item-r">'+
+					'<p class="pro-name">'+
+						'<span class="pro-name1">'+v.productName+'</span>'+
+						' <span class="red">'+v.productPinkage+'</span>'+
+					'</p>'+
+					'<p class="pro-from">'+
+						'<span class="grey">'+v.productFrom+' | '+v.productTime+'</span>'+
+						'<i class="icon-common fr">'+v.productComCount	+'<i>'+
+					'</p>'+					
+			'</div>'+
+		'</a>'
+				$('.product').append(str);
+			})
+			getPages(data);			
+		})
+	}		
+	mui.init({
+				swipeBack:true //启用右滑关闭功能
+			});
+	//获取总页数
+	function getPages(data){
+		pages = Math.ceil(data.totalCount/data.pagesize);
+	}
+	//分页
+	function addPage(){
+		var str = '';
+		for(i=0;i<15;i++){
+			str+= '<li>'+
+				'<a href="#">'+
+					(i+1)+
+				'</a>'+
+			'</li>'
+		}		
+		$('ul.mui-pagination').append('<li class="mui-previous">'+
+						'<a href="#">'+
+							'&laquo;'+
+						'</a>'+
+					'</li>'+str+'<li class="mui-next">'+
+								'<a href="#">'+
+									'&raquo;'+
+								'</a>'+
+							'</li>')
+		$('ul.mui-pagination')[0].children[1].className = 'mui-active';
+	}
+	//点击切换页数
+	(function($) {
+				$('.mui-pagination').on('tap', 'a', function() {
+					var li = this.parentNode;
+					var classList = li.classList;
+					if (!classList.contains('mui-active') && !classList.contains('mui-disabled')) {
+						var active = li.parentNode.querySelector('.mui-active');
+						if (classList.contains('mui-previous')) {//previous
+							if (active) {
+								var previous = active.previousElementSibling;
+								//console.log('previous', previous);
+								if (previous && !previous.classList.contains('mui-previous')) {
+									$.trigger(previous.querySelector('a'), 'tap');
+								} else {
+									classList.add('mui-disabled');
+								}
+							}
+						} else if (classList.contains('mui-next')) {//next
+							if (active) {
+								var next = active.nextElementSibling;
+								if (next && !next.classList.contains('mui-next')) {
+									$.trigger(next.querySelector('a'), 'tap');
+								} else {
+									classList.add('mui-disabled');
+								}
+							}
+						} else {//page
+							active.classList.remove('mui-active');
+							classList.add('mui-active');
+							var page = parseInt(this.innerText);
+							var previousPageElement = li.parentNode.querySelector('.mui-previous');
+							var nextPageElement = li.parentNode.querySelector('.mui-next');
+							previousPageElement.classList.remove('mui-disabled');
+							nextPageElement.classList.remove('mui-disabled');
+							if (page <= 1) {
+								previousPageElement.classList.add('mui-disabled');
+							} else if (page >= 15) {
+								nextPageElement.classList.add('mui-disabled');
+							}
+						}
+					}
+				});
+	})(mui);
+	//点击切换页面
+	function changePage(){
+		$('.mui-pagination').on('tap', 'a', function(){
+			var page = $(this).html();
+			getMoneySave(page);
+		})
+	}
+	 
+	
+</script>
+</html>

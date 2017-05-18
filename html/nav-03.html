@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>省钱快曝 -- 慢慢买</title>	
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../css/nav-03.css">
+</head>
+<body>
+<div class="layout">
+	<div class="fixed-app">
+			<a href="">
+				<img src="../images/app.png" alt="" />
+			</a>
+	</div>
+	<!--头部-->
+	<div class="header clearfix">
+		<a href="../index.html" class="fl">&lt;</a>
+		<h2>国内折扣</h2>
+		<a href="" class="fr">
+			<img src="../images/header_app.png" class="header_app"/>
+		</a>
+	</div>	
+	<!-- 国内折扣商品列表 -->
+	<div class="pro-list clearfix">
+		<!-- <a href="" class="item fl">
+			<div class="pic"><img src="" alt=""></div>
+			<p class="item-name">name</p>
+			<p class="item-price">price</p>
+			<p class="item-from">from</p>
+		</a> -->
+	</div>
+
+	<p class="return"><a href="../index.html">首页 &gt;</a> <span>省钱快曝</span></p>
+	<!--底部-->
+	<div class="footer">
+			<div class="f-top">
+				<a href="" id="login">登录</a>
+				<a href="" id="register">注册</a>
+				<a href="javascript:scroll(0,0)" id="return-top"><i></i>返回顶部</a>
+			</div>
+			<p>
+				<a class="downLoad">手机APP下载</a>
+				<span>慢慢买手机版--掌上比价平台</span>
+			</p>
+			<p>m.manmanbuy.com</p>
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="../js/jquery/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		discountPro();
+	})
+	// 国内折扣列表
+	var init = 8, maxNum=0;
+	function discountPro(){
+		$.get('http://127.0.0.1:3000/api/getinlanddiscount',function(data){
+			//console.log(data.result[0]);
+			var v = data.result;
+			var str='';
+			for(var i = 0;i<8;i++){
+				str += '<a href="nav-03-detail .html?productid='+v[i].productId+'" class="item fl">'+
+				'<div class="pic">'+v[i].productImg+'</div>'+
+				'<p class="item-name">'+v[i].productName+'</p>'+
+				'<p class="item-price">'+v[i].productPrice+'</p>'+
+				'<p class="item-from">'+v[i].productFrom+' | '+v[i].productTime+'</p>'+
+			'</a>'
+			}
+			maxNum = data.result.length;
+			$('.pro-list').append(str);
+			scroll();
+		})
+	}
+
+	function scroll(){
+		$(window).scroll(function(){
+			//窗口可视高度
+			var doc_h = document.documentElement.clientHeight;
+			// console.log($(document).height()-doc_h)
+			// console.log($(window).scrollTop())
+			if(doc_h+$(window).scrollTop() >= $(document).height()-100){
+				//console.log(init);
+				if(init<maxNum-3){
+					addData();
+				}else{
+					//console.log('over');
+					return false;
+				}
+			}
+		})
+	}
+
+	function addData(){
+		$.get('http://127.0.0.1:3000/api/getinlanddiscount',function(data){
+			var str='';
+			var v = data.result;
+			for(var i = init;i<init+4;i++){
+				str += '<a href="nav-03-detail .html?productid='+v[i].productId+'" class="item fl">'+
+				'<div class="pic">'+v[i].productImg+'</div>'+
+				'<p class="item-name">'+v[i].productName+'</p>'+
+				'<p class="item-price">'+v[i].productPrice+'</p>'+
+				'<p class="item-from">'+v[i].productFrom+' | '+v[i].productTime+'</p>'+
+			'</a>'
+			}
+			$('.pro-list').append(str);
+			init = init+4;
+			scroll();
+		});
+	}
+</script>
+</html>

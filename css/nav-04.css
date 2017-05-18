@@ -1,0 +1,163 @@
+/*头部*/
+.header{
+    position: relative;
+    background-color: #e4393c;
+}
+.header a{
+    position: absolute;
+}
+.header a:first-child{
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 25px;
+}
+.header a:last-child{
+    top: 0;
+    right: 0;
+}
+
+.header h2{
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+}
+
+/*tab标签栏*/
+.tab{
+    width:100%;
+    height:38px;
+    overflow:hidden;
+    border-bottom: 1px solid #d1d1d1;
+}
+.tab-nav{
+    width: 1000px;
+    background-color: pink;
+}
+.tab-nav li{
+    float: left;
+    height: 38px;
+}
+.tab-nav li a{ 
+    display: block;
+    height: 38px;
+    line-height: 38px;
+    margin: 0 12px;
+    font-size: 14px;
+}
+.tab-nav li.active a{
+    color: red;
+    border-bottom: 3px solid red;
+}
+
+/*商品list*/
+.pro-list{
+    margin-top: 5px;
+}
+.pro-list .sale-pic{
+    margin: 10px 0;
+    width: 100%;
+    height: auto;
+}
+.pro-list .sale-pic img{
+   display: block;
+    width: 100%;
+}
+
+.pro-list{
+    width: 100%;
+    height: auto;
+}
+.pro-list li{
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+.pro-list li .pro-item{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.pro-list li .pro-item .pro-pic{
+    width: 140px;
+    height: 130px;
+}
+.pro-item .pro-pic img{
+    display: block;
+    width: 130px;
+    height: 130px;
+}
+.pro-list li .pro-item .pro-info{
+    width: 100%;
+    padding-left: 140px;
+    position: relative;
+}
+.pro-item .pro-info p{
+    margin-top: 10px;
+}
+.pro-item .pro-info .pro-name{
+    font-size: 16px;
+}
+.pro-item .pro-info .pro-name .b{
+    font-size: 16px;
+    font-weight: 800;
+}
+.pro-item .pro-info .pro-price{
+    font-size: 16px;
+}
+.pro-item .pro-info .pro-price em{
+    font-size: 14px;
+    padding: 0 5px;
+    color: red;
+}
+.pro-item .pro-info .pro-price del{
+    color: grey;
+    margin-left: 20px;
+}
+.pro-item .pro-info .pro-sale a{
+    font-size: 14px;
+    color: red;
+}
+
+.pro-item .pro-info .bar{
+
+}
+.pro-item .pro-info .bar b{
+    float: left;
+    padding-left: 5px;
+}
+.pro-item .pro-info .bar i{
+    float: left;
+    width: 30%;
+    background-color: #ccc;
+}
+.pro-item .pro-info .bar i em{    
+    background-color: #fff;
+}
+
+.pro-item .pro-info>a{
+    position: absolute;
+    right: 5px;
+    bottom: 10px;
+    background-color: orange;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+}
+
+
+
+p.return{
+    width: 100%;
+    height: 30px;
+    border-bottom: 1px solid #ccc;
+    background-color: #f1f1f1;
+    padding-left: 10px;
+    line-height: 30px;
+    margin-top: 30px;
+}

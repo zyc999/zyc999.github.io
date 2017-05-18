@@ -1,0 +1,170 @@
+.fixed-app{
+	position: fixed;
+	right: 0;
+	bottom: 60px;
+	z-index: 1;
+}
+.fixed-app a{
+	display: block;
+}
+.fixed-app img{
+	display: block;
+	width: 60px;
+	height: 67px;
+}
+.fixed-buy{
+	width: 100%;
+	position: fixed;
+	right: 0;
+	bottom: 0px;
+	z-index: 1;
+}
+.fixed-buy a{
+	line-height: 40px;
+	text-align: center;
+	font-size: 18px;
+}
+.fixed-buy a:first-child{
+	float: left;
+	width: 30%;
+	height: 40px;
+	background-color: #f1f1f1;
+}
+.fixed-buy a:last-child{
+	float: right;
+	width: 70%;
+	height: 40px;
+	background-color: #ff0066;
+	color: #fff;
+}
+/*头部*/
+.header{
+	position: relative;
+}
+.header a{
+	position: absolute;
+}
+.header a:first-child{
+	width: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 25px;
+}
+.header a:last-child{
+	top: 0;
+	right: 0;
+}
+
+.header h2{
+	width: 100%;
+	line-height: 50px;
+	text-align: center;
+	font-size: 20px;
+	color: white;
+}
+/*商品详情 */
+.pro-detail{
+	width: 100%;
+	height: auto;
+	padding: 10px;
+}
+.pro-detail p{
+	margin: 10px;
+}
+.pro-detail p.pro-name{
+	font-size: 18px;
+	font-weight: 800;
+}
+.pro-detail p.pro-price{
+	color: orange;
+	font-size: 14px;
+	font-weight: 800;
+}
+.pro-detail p.pro-from{
+	color: grey;
+	font-size: 12px;
+}
+.pro-detail .pro-info{
+	position: relative;
+	min-height: 130px;
+}
+.pro-detail .pro-info p{
+	font-size: 16px;
+	width: 100%;
+	padding-right: 130px;
+}
+.pro-detail .pro-info a{
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-top: 10px;
+	margin-left: 10px;
+	width: 120px;
+	height: 120px;
+}
+.pro-detail .pro-info a img{
+	display: block;
+	width: 120px;
+	height: 120px;
+}
+
+.pro-detail div.sale{
+	font-size: 16px;
+	margin: 20px 0;
+}
+
+.pro-detail .big-pic{
+	width: 350px;
+	height: 350px;
+}
+.pro-detail .big-pic img{
+	display: block;
+	width: 350px;
+	height: 350px;
+}
+.pro-detail .city{
+	text-align: left;
+	margin: 10px 0;
+}
+.pro-detail .city ul{
+	width: 40%;
+	margin: 0 auto;
+	border: 1px solid #ccc;
+	box-shadow: 1px 1px 2px #d1d1d1;
+	padding: 5px;
+}
+.pro-detail .city ul li{
+	border-bottom: 1px dashed #ccc;
+	padding-bottom: 5px;
+	padding-left: 20%;
+}
+.pro-detail .city ul li strong{
+	padding-left: 30%;
+	color: red;
+}
+.comment{
+	padding-left: 15px;
+}
+
+
+.layout .goBuy{
+	display: block;
+	margin: 20px;
+	background-color: orange;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #fff;
+	border-radius: 5px;
+	font-size: 18px;
+}
+
+p.return{
+	width: 100%;
+	height: 30px;
+	border-bottom: 1px solid #ccc;
+	background-color: #f1f1f1;
+	padding-left: 10px;
+	line-height: 30px;
+	margin-top: 30px;
+}

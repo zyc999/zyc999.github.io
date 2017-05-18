@@ -1,0 +1,149 @@
+body,html{
+	width: 100%;
+}
+body{
+    background: #f5f5f5;
+}
+.layout{
+    min-width: 300px;/*适配小屏幕设备  为了保持布局的正常  设置比320px还小的屏幕的时候做适配*/
+    max-width: 640px;/*在行业当中  设计图一般是640px 如果不限制那么图片就会被拉伸  页面的显示效果就差*/
+    margin: 0 auto;
+    position: relative;
+}
+.fixed-app{
+	position: fixed;
+	right: 0;
+	bottom: 60px;
+	z-index: 1;
+}
+.fixed-app a{
+	display: block;
+}
+.fixed-app img{
+	display: block;
+	width: 60px;
+	height: 67px;
+}
+
+/*搜索框*/
+.search{
+	height: 50px;
+	border-bottom: 1px solid #ccc;
+	padding: 10px;
+}
+.search input{
+	line-height: 30px;
+	border: 1px solid #fff;
+	background-color: #f1f1f1;
+	border-radius: 15px;
+	font-size: 16px;
+}
+.search .search-box{
+	width: 100%;
+	padding-left: 20px;
+}
+.search .search-btn{
+	position: absolute;
+	top:60px;
+	right: 10px;
+	background-color: orange;
+	width: 60px;
+	color: #fff;
+	cursor: pointer;
+}
+/*导航*/
+.nav{
+	width: 100%;
+	height: auto;
+	padding: 10px 0;
+}
+.nav li{
+	float: left;
+	width: 25%;
+	margin: 16px 0;
+	height: 68px;
+	text-align: center;
+}
+.nav li.nav-show{
+	display: none;
+}
+.nav li a{
+	display:block;
+	width: 50px;
+	height: 50px;
+	margin: 0 auto;
+}
+.nav li a img{
+	display:block;
+	width: 50px;
+	height: 50px;
+}
+.nav li p{
+	
+}
+/*超值折扣推荐*/
+.product .pro-head{
+	width: 100%;
+	background-color: orange;
+	height: 40px;
+	line-height: 40px;
+	position: relative;
+}
+.product .pro-title{
+	color: white;
+	font-size: 18px;
+	padding-left: 10px;
+}
+.pro-head a{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 20px;
+	height: 20px;
+}
+.pro-head a img{
+	display: block;
+	width: 20px;
+	height: 20px;
+}
+/*产品*/
+.product .item{
+	display: block;
+	padding: 15px 8px;
+	position: relative;
+}
+.product .item .item-l{
+	position: absolute;
+	width: 110px;
+}
+.product .item img{
+	display: block;
+	width: 100px;
+	height: 100px;
+}
+.product .item .item-r{
+	width: 100%;
+	padding-left: 110px;
+}
+.product .item .item-r .pro-name{
+	margin-bottom: 40px;
+	font-size: 14px;
+}
+
+.product .item .item-r i{	
+	/*width: 20px;
+	height: 20px;*/	
+}
+.product .pro-more-info{
+	margin: 20px 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+}
+.product .pro-more-info a{
+	display: block;
+	width: 100%;
+	line-height: 30px;
+}

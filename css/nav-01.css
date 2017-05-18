@@ -1,0 +1,48 @@
+/*搜索框*/
+.search{
+	height: auto;
+	border-bottom: 1px solid #ccc;
+	padding: 10px;
+}
+.search input{
+	line-height: 30px;
+	border: 1px solid #fff;
+	background-color: #f1f1f1;
+	border-radius: 15px;
+	font-size: 16px;
+}
+.search .search-box{
+	width: 100%;
+	padding-left: 20px;
+}
+.search .search-btn{
+	position: absolute;
+	top:60px;
+	right: 10px;
+	background-color: orange;
+	width: 60px;
+	color: #fff;
+	cursor: pointer;
+}
+/*产品分类*/
+.pro-category{
+	width: 100%;
+	height: auto;
+}
+.pro-category .zyc-nav-cell{
+	display: block;
+	width: 33.33%;
+	height: 40px;
+	line-height: 40px;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	text-align: center;
+	float: left;
+} 
+.pro-category .zyc-pto-item a.mui-navigate-right{
+	font-size: 18px;
+	font-weight: bold;
+} 
+.mui-table-view-cell.mui-collapse div.mui-collapse-content{
+	padding: 0;
+} 
